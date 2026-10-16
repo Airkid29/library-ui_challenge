@@ -1,4 +1,6 @@
-# KORI
+# KORI - Your money, in control.
+
+Projet réalisé dans le cadre du challenge LibraryUI (https://libraryui.com/challenges/cree-une-interface-avec-des-composants-de-libraryui) , réalisé en Angular à partir des composants préts à l'emploi de LibraryUI. 
 
 ```bash
 npm install --legacy-peer-deps
@@ -24,3 +26,9 @@ https://libraryui.com/components/tailwind/cookies-tw?category=all&page=1&search=
 
 **Composant confirmation** — Modèle utilisé : Toast  
 https://libraryui.com/components/tailwind/confirmation-tw?category=all&page=1&search=conf
+
+
+N'hésitez surtout pas a faire un tour sur LibraryUI pour voir tous les composants et les modèles proposés. Franchement c'est CRAZYYYY !!!
+
+
+**Made by Rach_Code**
