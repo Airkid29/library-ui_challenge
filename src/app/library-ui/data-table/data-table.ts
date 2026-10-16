@@ -221,7 +221,7 @@ export class DataTablePage {
     if (stock < 30) {
       return '#f59e0b';
     }
-    return '#C7F36B';
+    return 'var(--kori-positive)';
   }
 
   cell(row: DataTableRow, key: string): string {

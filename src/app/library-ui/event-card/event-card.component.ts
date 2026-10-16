@@ -51,22 +51,22 @@ export class EventCardComponent {
   protected amountClasses(variant: EventCardAmountVariant): string {
     switch (variant) {
       case 'positive':
-        return 'text-[#C7F36B]';
+        return 'text-kori-positive';
       case 'negative':
-        return 'text-red-400';
+        return 'text-kori-negative';
       default:
-        return 'text-[#F4F3ED]';
+        return 'text-kori-text';
     }
   }
 
   protected trendBadgeClasses(direction: EventCardTrendDirection): string {
     switch (direction) {
       case 'up':
-        return 'bg-[#C7F36B]/15 text-[#C7F36B]';
+        return 'bg-kori-accent/15 text-kori-positive';
       case 'down':
-        return 'bg-red-500/15 text-red-300';
+        return 'bg-kori-negative/15 text-kori-negative';
       default:
-        return 'bg-white/8 text-[#9AA396]';
+        return 'bg-kori-chip text-kori-muted';
     }
   }
 

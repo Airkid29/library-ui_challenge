@@ -1,17 +1,17 @@
-<div class="relative flex h-screen min-h-150 overflow-hidden bg-[#101310] font-sans"
+<div class="relative flex h-screen min-h-150 overflow-hidden bg-kori-bg font-sans"
      [class.sidebar-open]="sidebarOpen()">
 
   @if (sidebarOpen()) {
     <div class="fixed inset-0 z-40 bg-black/45 md:hidden" (click)="toggleSidebar()"></div>
   }
 
-  <aside class="z-50 flex w-18 shrink-0 flex-col items-center bg-[#1D241E] py-5 pb-6
+  <aside class="z-50 flex w-18 shrink-0 flex-col items-center border-r border-kori-line bg-kori-sidebar py-5 pb-6
                 max-md:fixed max-md:top-0 max-md:left-0 max-md:h-full max-md:w-50
                 max-md:items-start max-md:-translate-x-full max-md:transition-transform max-md:duration-200"
          [class.max-md:translate-x-0]="sidebarOpen()">
 
     <div class="mb-8 max-md:px-6">
-      <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-[#C7F36B] text-[#101310]">
+      <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-kori-accent text-kori-ink">
         <span class="font-[Syne] text-sm font-extrabold tracking-tight">KO</span>
       </div>
     </div>
@@ -19,9 +19,9 @@
     <nav class="flex w-full flex-1 flex-col items-center gap-1 max-md:items-start">
       @for (item of navItems; track item.path) {
         <a [routerLink]="item.path"
-          routerLinkActive="text-[#F4F3ED] cd-nav-active"
+          routerLinkActive="text-kori-text cd-nav-active"
           [routerLinkActiveOptions]="{ exact: item.path === '/' }"
-          class="relative flex w-full flex-col items-center justify-center gap-[0.3rem] py-3 text-white/40 no-underline transition-colors hover:text-white/75
+          class="relative flex w-full flex-col items-center justify-center gap-[0.3rem] py-3 text-kori-nav no-underline transition-colors hover:text-kori-text
                  max-md:flex-row max-md:justify-start max-md:gap-3 max-md:px-6">
 
           @if (item.icon === 'grid') {
@@ -46,7 +46,7 @@
     </nav>
 
     <button type="button"
-      class="flex w-full cursor-pointer flex-col items-center justify-center gap-[0.3rem] border-0 bg-transparent py-3 text-white/35 no-underline transition-colors hover:text-white/65
+      class="flex w-full cursor-pointer flex-col items-center justify-center gap-[0.3rem] border-0 bg-transparent py-3 text-kori-nav no-underline transition-colors hover:text-kori-text
              max-md:flex-row max-md:justify-start max-md:gap-3 max-md:px-6"
       (click)="store.resetDemo()">
       <svg class="shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 12 11 12"/></svg>
@@ -55,19 +55,38 @@
   </aside>
 
   <main class="relative flex flex-1 flex-col overflow-hidden max-md:flex-col">
-    <button class="z-45 fixed top-4 left-4 hidden h-9.5 w-9.5 cursor-pointer items-center justify-center rounded-lg border-none bg-[#1D241E] text-white max-md:flex"
+    <button class="z-45 fixed top-4 left-4 hidden h-9.5 w-9.5 cursor-pointer items-center justify-center rounded-lg border-none bg-kori-surface text-kori-text max-md:flex"
             (click)="toggleSidebar()" aria-label="Ouvrir le menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
         <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
     </button>
 
-    <header class="flex items-center justify-between gap-4 border-b border-white/6 px-6 py-4 max-md:pt-16">
+    <header class="flex items-center justify-between gap-4 border-b border-kori-line px-6 py-4 max-md:pt-16">
       <div>
-        <p class="font-[Syne] text-lg font-extrabold tracking-tight text-[#F4F3ED]">KORI</p>
-        <p class="text-xs text-[#9AA396]">Your money, in control.</p>
+        <p class="font-[Syne] text-lg font-extrabold tracking-tight text-kori-text">KORI</p>
+        <p class="text-xs text-kori-muted">Your money, in control.</p>
       </div>
-      <app-account-menu (selected)="onMenu($event)" (share)="onShare()" />
+      <div class="flex items-center gap-2">
+        <button
+          type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-kori-line bg-kori-surface text-kori-text transition-colors hover:bg-kori-hover"
+          (click)="store.toggleTheme()"
+          [attr.aria-label]="store.settings().theme === 'dark' ? 'Activer le mode clair' : 'Activer le mode sombre'"
+        >
+          @if (store.settings().theme === 'dark') {
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 3v1.5M12 19.5V21M4.9 4.9l1.1 1.1M18 18l1.1 1.1M3 12h1.5M19.5 12H21M4.9 19.1 6 18M18 6l1.1-1.1" />
+            </svg>
+          } @else {
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 14.5A8.5 8.5 0 1 1 9.5 3 7 7 0 0 0 21 14.5Z" />
+            </svg>
+          }
+        </button>
+        <app-account-menu (selected)="onMenu($event)" (share)="onShare()" />
+      </div>
     </header>
 
     <div class="kori-scroll flex-1 overflow-y-auto">

@@ -3,6 +3,7 @@ export type TransactionStatus = 'completed' | 'pending' | 'failed';
 export type PaymentMethod = 'Wave' | 'Orange Money' | 'MTN MoMo' | 'Virement' | 'Carte' | 'Espèces';
 export type DisplayCurrency = 'XOF' | 'EUR' | 'USD';
 export type PeriodKey = 'this-month' | 'last-month' | 'last-3-months' | 'year';
+export type ColorTheme = 'dark' | 'light';
 
 export interface Transaction {
   id: string;
@@ -35,6 +36,7 @@ export interface AppSettings {
   currency: DisplayCurrency;
   compactNumbers: boolean;
   period: PeriodKey;
+  theme: ColorTheme;
 }
 
 export interface ConfirmRequest {

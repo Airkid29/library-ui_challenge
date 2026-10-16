@@ -45,7 +45,7 @@ export class OverviewPage {
         location: `${city} · Freelance + transferts`,
         isDraft: false,
         avatars: [
-          { initials: 'WV', name: 'Wave', colorClass: 'bg-[#C7F36B]' },
+          { initials: 'WV', name: 'Wave', colorClass: 'bg-kori-accent' },
           { initials: 'VR', name: 'Virement', colorClass: 'bg-sky-300' },
         ],
         extraAttendeesCount: 1,
@@ -90,7 +90,7 @@ export class OverviewPage {
         location: `${city} · Objectifs liés`,
         isDraft: false,
         avatars: [
-          { initials: 'PC', name: 'Ordinateur', colorClass: 'bg-[#C7F36B]' },
+          { initials: 'PC', name: 'Ordinateur', colorClass: 'bg-kori-accent' },
           { initials: 'UR', name: 'Urgence', colorClass: 'bg-emerald-300' },
         ],
         extraAttendeesCount: 1,

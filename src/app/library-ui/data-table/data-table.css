@@ -22,11 +22,11 @@
 }
 
 .dt-th-sortable:hover {
-  background: rgb(255 255 255 / 0.04);
+  background: var(--kori-hover);
 }
 
 .dt-filter-select option,
 .dt-page-select option {
-  background: #1d241e;
-  color: #f4f3ed;
+  background: var(--kori-surface);
+  color: var(--kori-text);
 }

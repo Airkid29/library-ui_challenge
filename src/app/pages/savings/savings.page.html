@@ -1,22 +1,22 @@
 <div class="px-5 py-6 pb-24 sm:px-8">
   <h1 class="font-[Syne] text-3xl font-extrabold">Savings Goals</h1>
-  <p class="mt-2 mb-8 max-w-2xl text-sm text-[#9AA396]">
+  <p class="mt-2 mb-8 max-w-2xl text-sm text-kori-muted">
     Chaque contribution crée une dépense « Épargne » et augmente le montant mis de côté. Le solde disponible diminue d’autant — pas de double comptage.
   </p>
 
   <div class="grid gap-5 lg:grid-cols-3">
     @for (goal of store.goals(); track goal.id) {
-      <article class="flex flex-col rounded-2xl border border-white/8 bg-[#1D241E] p-6">
+      <article class="flex flex-col rounded-2xl border border-kori-line bg-kori-surface p-6">
         <h2 class="text-xl font-semibold">{{ goal.name }}</h2>
-        <p class="mt-6 font-[Syne] text-3xl font-extrabold text-[#C7F36B]">{{ progress(goal.savedAmount, goal.targetAmount) }}%</p>
-        <div class="mt-3 h-2 overflow-hidden rounded-full bg-white/8">
-          <div class="h-full rounded-full bg-[#C7F36B]" [style.width.%]="progress(goal.savedAmount, goal.targetAmount)"></div>
+        <p class="mt-6 font-[Syne] text-3xl font-extrabold text-kori-positive">{{ progress(goal.savedAmount, goal.targetAmount) }}%</p>
+        <div class="mt-3 h-2 overflow-hidden rounded-full bg-kori-chip">
+          <div class="h-full rounded-full bg-kori-accent" [style.width.%]="progress(goal.savedAmount, goal.targetAmount)"></div>
         </div>
-        <p class="mt-3 text-sm text-[#9AA396]">{{ store.money(goal.savedAmount) }} sur {{ store.money(goal.targetAmount) }}</p>
+        <p class="mt-3 text-sm text-kori-muted">{{ store.money(goal.savedAmount) }} sur {{ store.money(goal.targetAmount) }}</p>
         @if (goal.targetDate) {
-          <p class="mt-1 text-xs text-[#9AA396]">Échéance {{ goal.targetDate }}</p>
+          <p class="mt-1 text-xs text-kori-muted">Échéance {{ goal.targetDate }}</p>
         }
-        <button type="button" class="mt-6 rounded-lg bg-[#C7F36B] px-4 py-2 text-sm font-semibold text-[#101310]" (click)="open(goal.id)">Ajouter une contribution</button>
+        <button type="button" class="mt-6 rounded-lg bg-kori-accent px-4 py-2 text-sm font-semibold text-kori-ink" (click)="open(goal.id)">Ajouter une contribution</button>
       </article>
     }
   </div>
@@ -24,14 +24,14 @@
 
 @if (activeGoal()) {
   <div class="fixed inset-0 z-60 flex items-end justify-center bg-black/55 p-4 sm:items-center">
-    <form class="w-full max-w-md rounded-2xl border border-white/8 bg-[#1D241E] p-5" (ngSubmit)="contribute()">
+    <form class="w-full max-w-md rounded-2xl border border-kori-line bg-kori-surface p-5" (ngSubmit)="contribute()">
       <h2 class="mb-3 text-lg font-semibold">Contribution</h2>
-      <label class="text-xs text-[#9AA396]">Montant (F CFA)
-        <input type="number" min="1" required [(ngModel)]="amount" name="amount" class="mt-1 w-full rounded-lg border border-white/10 bg-[#101310] px-3 py-2 text-sm text-[#F4F3ED]" />
+      <label class="text-xs text-kori-muted">Montant (F CFA)
+        <input type="number" min="1" required [(ngModel)]="amount" name="amount" class="mt-1 w-full rounded-lg border border-kori-line bg-kori-bg px-3 py-2 text-sm text-kori-text" />
       </label>
       <div class="mt-5 flex justify-end gap-3">
-        <button type="button" class="rounded-lg border border-white/15 px-4 py-2 text-sm" (click)="activeGoal.set(null)">Annuler</button>
-        <button type="submit" class="rounded-lg bg-[#C7F36B] px-4 py-2 text-sm font-semibold text-[#101310]">Confirmer</button>
+        <button type="button" class="rounded-lg border border-kori-line px-4 py-2 text-sm" (click)="activeGoal.set(null)">Annuler</button>
+        <button type="submit" class="rounded-lg bg-kori-accent px-4 py-2 text-sm font-semibold text-kori-ink">Confirmer</button>
       </div>
     </form>
   </div>

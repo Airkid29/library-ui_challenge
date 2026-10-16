@@ -52,6 +52,7 @@ export const DEMO_SETTINGS = {
   currency: 'XOF' as const,
   compactNumbers: false,
   period: 'this-month' as const,
+  theme: 'dark' as const,
 };
 
 export const DEMO_OPENING_BALANCE = OPENING_BALANCE;

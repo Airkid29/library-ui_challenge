@@ -4,6 +4,7 @@ import { formatMoney, inRange, monthKey, periodLabel, signedAmount } from './mon
 import {
   AppSettings,
   BudgetCategory,
+  ColorTheme,
   ConfirmRequest,
   DisplayCurrency,
   OPENING_BALANCE,
@@ -22,6 +23,7 @@ interface PersistedState {
 
 const DATA_KEY = 'kori.demo.v1';
 const CONSENT_KEY = 'kori.local-consent';
+const THEME_KEY = 'kori.theme';
 
 @Injectable({ providedIn: 'root' })
 export class FinanceStore {
@@ -178,6 +180,11 @@ export class FinanceStore {
     if (this.consent() === 'accepted') {
       this.restore();
     }
+    const storedTheme = localStorage.getItem(THEME_KEY);
+    if (storedTheme === 'light' || storedTheme === 'dark') {
+      this.settings.update((s) => ({ ...s, theme: storedTheme }));
+    }
+    this.applyTheme(this.settings().theme);
     effect(() => {
       const snapshot: PersistedState = {
         transactions: this.transactions(),
@@ -185,6 +192,7 @@ export class FinanceStore {
         goals: this.goals(),
         settings: this.settings(),
       };
+      this.applyTheme(snapshot.settings.theme);
       if (this.skippedPersist) {
         return;
       }
@@ -214,6 +222,14 @@ export class FinanceStore {
     this.settings.update((s) => ({ ...s, compactNumbers }));
   }
 
+  setTheme(theme: ColorTheme): void {
+    this.settings.update((s) => ({ ...s, theme }));
+  }
+
+  toggleTheme(): void {
+    this.setTheme(this.settings().theme === 'dark' ? 'light' : 'dark');
+  }
+
   acceptLocalStorage(): void {
     this.consent.set('accepted');
     localStorage.setItem(CONSENT_KEY, 'accepted');
@@ -228,10 +244,11 @@ export class FinanceStore {
   }
 
   resetDemo(): void {
+    const theme = this.settings().theme;
     this.transactions.set(structuredClone(DEMO_TRANSACTIONS));
     this.budgets.set(structuredClone(DEMO_BUDGETS));
     this.goals.set(structuredClone(DEMO_GOALS));
-    this.settings.set({ ...DEMO_SETTINGS });
+    this.settings.set({ ...DEMO_SETTINGS, theme });
     this.notify('Jeu de démo réinitialisé.');
   }
 
@@ -379,6 +396,11 @@ export class FinanceStore {
       .map((tx) => Number(tx.id.replace(/\D/g, '')))
       .filter((n) => !Number.isNaN(n));
     return `TX-${Math.max(1000, ...nums) + 1}`;
+  }
+
+  private applyTheme(theme: ColorTheme): void {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem(THEME_KEY, theme);
   }
 
   private restore(): void {

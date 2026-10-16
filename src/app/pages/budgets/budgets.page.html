@@ -1,54 +1,54 @@
 <div class="px-5 py-6 pb-24 sm:px-8">
   <h1 class="font-[Syne] text-3xl font-extrabold">Budgets</h1>
-  <p class="mt-2 mb-8 max-w-2xl text-sm text-[#9AA396]">
+  <p class="mt-2 mb-8 max-w-2xl text-sm text-kori-muted">
     Plafonds mensuels comparés aux dépenses confirmées de la période « {{ store.periodTitle() }} ».
   </p>
 
   <div class="mb-8 grid gap-4 sm:grid-cols-3">
-    <article class="rounded-2xl border border-white/8 bg-[#1D241E] p-5">
-      <p class="text-xs tracking-wide text-[#9AA396] uppercase">Budget total</p>
+    <article class="rounded-2xl border border-kori-line bg-kori-surface p-5">
+      <p class="text-xs tracking-wide text-kori-muted uppercase">Budget total</p>
       <p class="mt-2 text-2xl font-bold">{{ store.money(store.totalBudget()) }}</p>
     </article>
-    <article class="rounded-2xl border border-white/8 bg-[#1D241E] p-5">
-      <p class="text-xs tracking-wide text-[#9AA396] uppercase">Déjà dépensé</p>
-      <p class="mt-2 text-2xl font-bold text-red-300">{{ store.money(store.totalBudgetSpent()) }}</p>
+    <article class="rounded-2xl border border-kori-line bg-kori-surface p-5">
+      <p class="text-xs tracking-wide text-kori-muted uppercase">Déjà dépensé</p>
+      <p class="mt-2 text-2xl font-bold text-kori-negative">{{ store.money(store.totalBudgetSpent()) }}</p>
     </article>
-    <article class="rounded-2xl border border-white/8 bg-[#1D241E] p-5">
-      <p class="text-xs tracking-wide text-[#9AA396] uppercase">Reste</p>
-      <p class="mt-2 text-2xl font-bold text-[#C7F36B]">{{ store.money(store.totalBudget() - store.totalBudgetSpent()) }}</p>
+    <article class="rounded-2xl border border-kori-line bg-kori-surface p-5">
+      <p class="text-xs tracking-wide text-kori-muted uppercase">Reste</p>
+      <p class="mt-2 text-2xl font-bold text-kori-positive">{{ store.money(store.totalBudget() - store.totalBudgetSpent()) }}</p>
     </article>
   </div>
 
   <div class="grid gap-4 md:grid-cols-2">
     @for (budget of store.budgetStats(); track budget.id) {
-      <article class="rounded-2xl border bg-[#1D241E] p-5" [class.border-red-400/40]="budget.state === 'over'" [class.border-amber-300/40]="budget.state === 'warn'" [class.border-white/8]="budget.state === 'ok'">
+      <article class="rounded-2xl border bg-kori-surface p-5" [class.border-red-400/40]="budget.state === 'over'" [class.border-amber-300/40]="budget.state === 'warn'" [class.border-kori-line]="budget.state === 'ok'">
         <div class="mb-3 flex items-start justify-between gap-3">
           <div>
             <h2 class="font-semibold">{{ budget.name }}</h2>
-            <p class="text-xs text-[#9AA396]">{{ store.money(budget.spent) }} / {{ store.money(budget.limit) }}</p>
+            <p class="text-xs text-kori-muted">{{ store.money(budget.spent) }} / {{ store.money(budget.limit) }}</p>
           </div>
           <span class="rounded-full px-2 py-1 text-[11px] font-semibold"
             [class.bg-red-500/15]="budget.state === 'over'"
-            [class.text-red-300]="budget.state === 'over'"
+            [class.text-kori-negative]="budget.state === 'over'"
             [class.bg-amber-500/15]="budget.state === 'warn'"
             [class.text-amber-200]="budget.state === 'warn'"
-            [class.bg-[#C7F36B]/15]="budget.state === 'ok'"
-            [class.text-[#C7F36B]]="budget.state === 'ok'">
+            [class.bg-kori-accent/15]="budget.state === 'ok'"
+            [class.text-kori-positive]="budget.state === 'ok'">
             {{ budget.state === 'over' ? 'Dépassé' : budget.state === 'warn' ? 'Proche de la limite' : 'Sous contrôle' }}
           </span>
         </div>
-        <div class="mb-3 h-2 overflow-hidden rounded-full bg-white/8">
-          <div class="h-full rounded-full" [class.bg-red-400]="budget.state === 'over'" [class.bg-amber-300]="budget.state === 'warn'" [class.bg-[#C7F36B]]="budget.state === 'ok'" [style.width.%]="Math.min(100, budget.ratio * 100)"></div>
+        <div class="mb-3 h-2 overflow-hidden rounded-full bg-kori-chip">
+          <div class="h-full rounded-full" [class.bg-red-400]="budget.state === 'over'" [class.bg-amber-300]="budget.state === 'warn'" [class.bg-kori-accent]="budget.state === 'ok'" [style.width.%]="Math.min(100, budget.ratio * 100)"></div>
         </div>
-        <p class="mb-3 text-sm text-[#9AA396]">Reste {{ store.money(budget.remaining) }}</p>
+        <p class="mb-3 text-sm text-kori-muted">Reste {{ store.money(budget.remaining) }}</p>
         @if (editingId() === budget.id) {
           <div class="flex gap-2">
-            <input type="number" min="1" [(ngModel)]="draftLimit" class="w-full rounded-lg border border-white/10 bg-[#101310] px-3 py-2 text-sm" />
-            <button type="button" class="rounded-lg bg-[#C7F36B] px-3 text-sm font-semibold text-[#101310]" (click)="save()">OK</button>
-            <button type="button" class="rounded-lg border border-white/15 px-3 text-sm" (click)="editingId.set(null)">Annuler</button>
+            <input type="number" min="1" [(ngModel)]="draftLimit" class="w-full rounded-lg border border-kori-line bg-kori-bg px-3 py-2 text-sm" />
+            <button type="button" class="rounded-lg bg-kori-accent px-3 text-sm font-semibold text-kori-ink" (click)="save()">OK</button>
+            <button type="button" class="rounded-lg border border-kori-line px-3 text-sm" (click)="editingId.set(null)">Annuler</button>
           </div>
         } @else {
-          <button type="button" class="text-sm font-semibold text-[#C7F36B]" (click)="startEdit(budget.id, budget.limit)">Modifier le plafond</button>
+          <button type="button" class="text-sm font-semibold text-kori-positive" (click)="startEdit(budget.id, budget.limit)">Modifier le plafond</button>
         }
       </article>
     }

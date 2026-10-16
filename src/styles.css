@@ -3,12 +3,22 @@
 @theme {
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Syne", "DM Sans", sans-serif;
-  --color-kori-bg: #101310;
-  --color-kori-surface: #1d241e;
-  --color-kori-accent: #c7f36b;
-  --color-kori-text: #f4f3ed;
-  --color-kori-muted: #9aa396;
-  --color-kori-line: rgb(244 243 237 / 0.08);
+  --color-kori-bg: var(--kori-bg);
+  --color-kori-surface: var(--kori-surface);
+  --color-kori-sidebar: var(--kori-sidebar);
+  --color-kori-header: var(--kori-header);
+  --color-kori-input: var(--kori-input);
+  --color-kori-text: var(--kori-text);
+  --color-kori-muted: var(--kori-muted);
+  --color-kori-line: var(--kori-line);
+  --color-kori-hover: var(--kori-hover);
+  --color-kori-chip: var(--kori-chip);
+  --color-kori-nav: var(--kori-nav);
+  --color-kori-accent: var(--kori-accent);
+  --color-kori-ink: var(--kori-ink);
+  --color-kori-positive: var(--kori-positive);
+  --color-kori-negative: var(--kori-negative);
+  --color-kori-grid: var(--kori-grid);
   --spacing-4_5: 1.125rem;
   --spacing-18: 4.5rem;
   --spacing-45: 11.25rem;
@@ -28,6 +38,48 @@
   --z-9999: 9999;
 }
 
+:root {
+  color-scheme: dark;
+  --kori-bg: #101310;
+  --kori-surface: #1d241e;
+  --kori-sidebar: #1d241e;
+  --kori-header: #161c18;
+  --kori-input: #101310;
+  --kori-text: #f4f3ed;
+  --kori-muted: #9aa396;
+  --kori-line: rgb(244 243 237 / 0.1);
+  --kori-hover: rgb(255 255 255 / 0.06);
+  --kori-chip: rgb(255 255 255 / 0.08);
+  --kori-nav: rgb(255 255 255 / 0.42);
+  --kori-accent: #c7f36b;
+  --kori-ink: #101310;
+  --kori-positive: #c7f36b;
+  --kori-negative: #f87171;
+  --kori-grid: rgb(244 243 237 / 0.08);
+  --kori-scroll: #2b352d;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --kori-bg: #f4f3ed;
+  --kori-surface: #ffffff;
+  --kori-sidebar: #ecebe4;
+  --kori-header: #f0efe8;
+  --kori-input: #f4f3ed;
+  --kori-text: #141914;
+  --kori-muted: #5c665f;
+  --kori-line: rgb(20 25 20 / 0.1);
+  --kori-hover: rgb(20 25 20 / 0.05);
+  --kori-chip: rgb(20 25 20 / 0.06);
+  --kori-nav: rgb(20 25 20 / 0.45);
+  --kori-accent: #c7f36b;
+  --kori-ink: #101310;
+  --kori-positive: #3f6e12;
+  --kori-negative: #c2410c;
+  --kori-grid: rgb(20 25 20 / 0.1);
+  --kori-scroll: #c9cdc4;
+}
+
 html,
 body {
   min-height: 100%;
@@ -35,9 +87,10 @@ body {
 
 body {
   margin: 0;
-  background: #101310;
-  color: #f4f3ed;
+  background: var(--kori-bg);
+  color: var(--kori-text);
   font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  transition: background-color 180ms ease, color 180ms ease;
 }
 
 button,
@@ -45,6 +98,7 @@ input,
 select,
 textarea {
   font: inherit;
+  color: inherit;
 }
 
 .kori-scroll::-webkit-scrollbar {
@@ -53,6 +107,6 @@ textarea {
 }
 
 .kori-scroll::-webkit-scrollbar-thumb {
-  background: #2b352d;
+  background: var(--kori-scroll);
   border-radius: 8px;
 }
