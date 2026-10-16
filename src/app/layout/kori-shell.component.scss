@@ -1,0 +1,23 @@
+.cd-nav-active {
+  color: #f4f3ed;
+}
+
+.cd-nav-active::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 3px;
+  height: 60%;
+  background: #c7f36b;
+  border-radius: 2px 0 0 2px;
+}
+
+@media (max-width: 768px) {
+  .cd-nav-active::before {
+    right: auto;
+    left: 0;
+    border-radius: 0 2px 2px 0;
+  }
+}

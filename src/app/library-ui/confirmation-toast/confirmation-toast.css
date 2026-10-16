@@ -1,0 +1,15 @@
+.ct-progress::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background: #c7f36b;
+  animation: ct-progress 5s linear forwards;
+}
+
+@keyframes ct-progress {
+  from { width: 100%; }
+  to   { width: 0%; }
+}

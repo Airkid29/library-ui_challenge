@@ -1,0 +1,32 @@
+.dt-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.dt-filter-select,
+.dt-page-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%239aa396' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 0.5rem center;
+  background-size: 1.5em;
+}
+
+.dt-row-selected td {
+  background: rgb(199 243 107 / 0.08);
+}
+
+.dt-row-selected:hover td {
+  background: rgb(199 243 107 / 0.12);
+}
+
+.dt-th-sortable:hover {
+  background: rgb(255 255 255 / 0.04);
+}
+
+.dt-filter-select option,
+.dt-page-select option {
+  background: #1d241e;
+  color: #f4f3ed;
+}

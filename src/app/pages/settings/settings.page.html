@@ -1,0 +1,45 @@
+<div class="mx-auto max-w-2xl px-5 py-6 pb-24 sm:px-8">
+  <h1 class="font-[Syne] text-3xl font-extrabold">Settings</h1>
+  <p class="mt-2 mb-8 text-sm text-[#9AA396]">Préférences d’affichage pour cette démo. Aucune connexion bancaire n’est simulée.</p>
+
+  <section class="mb-6 rounded-2xl border border-white/8 bg-[#1D241E] p-5">
+    <h2 class="mb-4 font-semibold">Devise d’affichage</h2>
+    <p class="mb-3 text-sm text-[#9AA396]">Les montants restent stockés en F CFA. EUR et USD ne sont que des conversions d’affichage.</p>
+    <select class="w-full rounded-lg border border-white/10 bg-[#101310] px-3 py-2 text-sm" [ngModel]="store.settings().currency" (ngModelChange)="onCurrency($event)">
+      @for (currency of currencies; track currency) {
+        <option [value]="currency">{{ currency }}</option>
+      }
+    </select>
+  </section>
+
+  <section class="mb-6 rounded-2xl border border-white/8 bg-[#1D241E] p-5">
+    <h2 class="mb-4 font-semibold">Interface</h2>
+    <label class="flex items-center justify-between gap-4 text-sm">
+      <span>Montants compactés (k F CFA)</span>
+      <input type="checkbox" class="h-4 w-4 accent-[#C7F36B]" [ngModel]="store.settings().compactNumbers" (ngModelChange)="store.setCompactNumbers($event)" />
+    </label>
+  </section>
+
+  <section class="mb-6 rounded-2xl border border-white/8 bg-[#1D241E] p-5">
+    <h2 class="mb-3 font-semibold">Données de démonstration</h2>
+    <p class="mb-4 text-sm text-[#9AA396]">
+      Consentement local : {{ store.consent() === 'accepted' ? 'enregistrement navigateur activé' : store.consent() === 'declined' ? 'session uniquement' : 'non choisi' }}.
+      Le stockage local n’est pas une solution de sécurité.
+    </p>
+    <div class="flex flex-wrap gap-3">
+      <button type="button" class="rounded-lg bg-[#C7F36B] px-4 py-2 text-sm font-semibold text-[#101310]" (click)="store.resetDemo()">Réinitialiser la démo</button>
+      <button type="button" class="rounded-lg border border-white/15 px-4 py-2 text-sm" (click)="store.acceptLocalStorage()">Activer le stockage local</button>
+      <button type="button" class="rounded-lg border border-white/15 px-4 py-2 text-sm" (click)="store.declineLocalStorage()">Session seulement</button>
+    </div>
+  </section>
+
+  <section class="rounded-2xl border border-white/8 bg-[#1D241E] p-5">
+    <h2 class="mb-3 font-semibold">Méthode de calcul</h2>
+    <ul class="list-disc space-y-2 pl-5 text-sm text-[#9AA396]">
+      <li>Solde disponible = 420 000 F CFA d’ouverture + revenus confirmés − dépenses confirmées.</li>
+      <li>Les opérations « En attente » et « Échouée » n’entrent pas dans les totaux.</li>
+      <li>L’épargne du mois est la somme des dépenses catégorie « Épargne ».</li>
+      <li>Une contribution à un objectif augmente l’objectif et crée une transaction Épargne.</li>
+    </ul>
+  </section>
+</div>

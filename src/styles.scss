@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Syne", "DM Sans", sans-serif;
+  --color-kori-bg: #101310;
+  --color-kori-surface: #1d241e;
+  --color-kori-accent: #c7f36b;
+  --color-kori-text: #f4f3ed;
+  --color-kori-muted: #9aa396;
+  --color-kori-line: rgb(244 243 237 / 0.08);
+  --spacing-4.5: 1.125rem;
+  --spacing-7.5: 1.875rem;
+  --spacing-8.5: 2.125rem;
+  --spacing-9.5: 2.375rem;
+  --spacing-12.5: 3.125rem;
+  --spacing-13.5: 3.375rem;
+  --spacing-17.5: 4.375rem;
+  --spacing-18: 4.5rem;
+  --spacing-25: 6.25rem;
+  --spacing-45: 11.25rem;
+  --spacing-50: 12.5rem;
+  --spacing-62: 15.5rem;
+  --spacing-70: 17.5rem;
+  --spacing-80: 20rem;
+  --spacing-100: 25rem;
+  --spacing-150: 37.5rem;
+  --spacing-210: 52.5rem;
+  --spacing-225: 56.25rem;
+  --spacing-350: 87.5rem;
+  --z-index-45: 45;
+  --z-index-60: 60;
+  --z-index-70: 70;
+  --z-index-80: 80;
+  --z-index-9999: 9999;
+}
+
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #101310;
+  color: #f4f3ed;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+.kori-scroll::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.kori-scroll::-webkit-scrollbar-thumb {
+  background: #2b352d;
+  border-radius: 8px;
+}

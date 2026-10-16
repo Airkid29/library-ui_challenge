@@ -1,0 +1,24 @@
+@if (visible) {
+  <div class="fixed bottom-0 left-0 right-0 z-9999 font-sans">
+    <div class="flex flex-wrap items-center justify-between gap-4 bg-gray-900 px-8 py-3.5">
+      <div class="flex flex-1 items-center gap-2.5 text-xs text-gray-300">
+        <svg class="h-4 w-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+          <path d="M8.5 8.5v.01M16 15.5v.01M12 12v.01"/>
+        </svg>
+        KORI peut mémoriser tes préférences et le jeu de données de démo dans ce navigateur. Ce n’est ni une banque, ni une garantie de confidentialité.
+        <a routerLink="/settings" class="ml-1 text-[#C7F36B] no-underline hover:underline">En savoir plus</a>
+      </div>
+      <div class="flex gap-2.5">
+        <button
+          class="cursor-pointer rounded-lg border border-white/15 bg-transparent px-5 py-2 text-xs font-semibold text-gray-400 transition-colors hover:border-white/30 hover:text-gray-200"
+          (click)="decline()"
+        >Refuser</button>
+        <button
+          class="cursor-pointer rounded-lg border border-[#C7F36B] bg-[#C7F36B] px-5 py-2 text-xs font-semibold text-[#101310] transition-colors hover:bg-[#d6f98a]"
+          (click)="accept()"
+        >Accepter</button>
+      </div>
+    </div>
+  </div>
+}

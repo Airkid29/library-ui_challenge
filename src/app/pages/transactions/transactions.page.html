@@ -1,0 +1,46 @@
+<div class="px-5 py-6 pb-24 sm:px-8">
+  <div class="mb-4 flex justify-end">
+    <app-account-menu trigger="button" [buttonLabel]="periodButton()" [items]="periodItems" (selected)="onPeriod($event)" />
+  </div>
+  <app-data-table
+    title="Transactions"
+    subtitle="Ajoute, filtre, trie et exporte tes flux. Les totaux du dashboard se mettent à jour immédiatement."
+    [columns]="columns"
+    [allData]="rows()"
+    [filters]="filters()"
+    [currencyFormatter]="moneyFn()"
+    (add)="openAdd()"
+    (edit)="openEdit($event)"
+    (view)="openView($event)"
+    (remove)="remove($event)"
+    (exportRows)="export($event)"
+    (bulkRemove)="bulk($event)"
+  />
+</div>
+
+@if (formOpen()) {
+  <app-transaction-form [draft]="draft()" (saved)="save($event)" (closed)="formOpen.set(false)" />
+}
+
+@if (viewing(); as tx) {
+  <div class="fixed inset-0 z-60 flex items-end justify-center bg-black/55 p-4 sm:items-center">
+    <div class="w-full max-w-md rounded-2xl border border-white/8 bg-[#1D241E] p-5">
+      <div class="mb-4 flex items-start justify-between gap-3">
+        <div>
+          <p class="text-xs text-[#9AA396]">{{ tx.id }}</p>
+          <h2 class="text-lg font-semibold">{{ tx.description }}</h2>
+        </div>
+        <app-account-menu trigger="button" buttonLabel="Actions" [items]="rowMenu()" (selected)="onRowAction($event)" />
+      </div>
+      <dl class="grid grid-cols-2 gap-3 text-sm">
+        <div><dt class="text-[#9AA396]">Montant</dt><dd class="font-semibold">{{ store.money(tx.amount) }}</dd></div>
+        <div><dt class="text-[#9AA396]">Type</dt><dd>{{ tx.type === 'income' ? 'Revenu' : 'Dépense' }}</dd></div>
+        <div><dt class="text-[#9AA396]">Catégorie</dt><dd>{{ tx.category }}</dd></div>
+        <div><dt class="text-[#9AA396]">Date</dt><dd>{{ tx.date }}</dd></div>
+        <div><dt class="text-[#9AA396]">Paiement</dt><dd>{{ tx.paymentMethod }}</dd></div>
+        <div><dt class="text-[#9AA396]">Statut</dt><dd>{{ tx.status }}</dd></div>
+      </dl>
+      <button type="button" class="mt-5 rounded-lg border border-white/15 px-4 py-2 text-sm font-semibold" (click)="viewing.set(null)">Fermer</button>
+    </div>
+  </div>
+}
