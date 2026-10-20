@@ -3,22 +3,22 @@
 @theme {
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Syne", "DM Sans", sans-serif;
-  --color-kori-bg: var(--kori-bg);
-  --color-kori-surface: var(--kori-surface);
-  --color-kori-sidebar: var(--kori-sidebar);
-  --color-kori-header: var(--kori-header);
-  --color-kori-input: var(--kori-input);
-  --color-kori-text: var(--kori-text);
-  --color-kori-muted: var(--kori-muted);
-  --color-kori-line: var(--kori-line);
-  --color-kori-hover: var(--kori-hover);
-  --color-kori-chip: var(--kori-chip);
-  --color-kori-nav: var(--kori-nav);
-  --color-kori-accent: var(--kori-accent);
-  --color-kori-ink: var(--kori-ink);
-  --color-kori-positive: var(--kori-positive);
-  --color-kori-negative: var(--kori-negative);
-  --color-kori-grid: var(--kori-grid);
+  --color-ecosave-bg: var(--ecosave-bg);
+  --color-ecosave-surface: var(--ecosave-surface);
+  --color-ecosave-sidebar: var(--ecosave-sidebar);
+  --color-ecosave-header: var(--ecosave-header);
+  --color-ecosave-input: var(--ecosave-input);
+  --color-ecosave-text: var(--ecosave-text);
+  --color-ecosave-muted: var(--ecosave-muted);
+  --color-ecosave-line: var(--ecosave-line);
+  --color-ecosave-hover: var(--ecosave-hover);
+  --color-ecosave-chip: var(--ecosave-chip);
+  --color-ecosave-nav: var(--ecosave-nav);
+  --color-ecosave-accent: var(--ecosave-accent);
+  --color-ecosave-ink: var(--ecosave-ink);
+  --color-ecosave-positive: var(--ecosave-positive);
+  --color-ecosave-negative: var(--ecosave-negative);
+  --color-ecosave-grid: var(--ecosave-grid);
   --spacing-4_5: 1.125rem;
   --spacing-18: 4.5rem;
   --spacing-45: 11.25rem;
@@ -40,44 +40,44 @@
 
 :root {
   color-scheme: dark;
-  --kori-bg: #101310;
-  --kori-surface: #1d241e;
-  --kori-sidebar: #1d241e;
-  --kori-header: #161c18;
-  --kori-input: #101310;
-  --kori-text: #f4f3ed;
-  --kori-muted: #9aa396;
-  --kori-line: rgb(244 243 237 / 0.1);
-  --kori-hover: rgb(255 255 255 / 0.06);
-  --kori-chip: rgb(255 255 255 / 0.08);
-  --kori-nav: rgb(255 255 255 / 0.42);
-  --kori-accent: #c7f36b;
-  --kori-ink: #101310;
-  --kori-positive: #c7f36b;
-  --kori-negative: #f87171;
-  --kori-grid: rgb(244 243 237 / 0.08);
-  --kori-scroll: #2b352d;
+  --ecosave-bg: #101310;
+  --ecosave-surface: #1d241e;
+  --ecosave-sidebar: #1d241e;
+  --ecosave-header: #161c18;
+  --ecosave-input: #101310;
+  --ecosave-text: #f4f3ed;
+  --ecosave-muted: #9aa396;
+  --ecosave-line: rgb(244 243 237 / 0.1);
+  --ecosave-hover: rgb(255 255 255 / 0.06);
+  --ecosave-chip: rgb(255 255 255 / 0.08);
+  --ecosave-nav: rgb(255 255 255 / 0.42);
+  --ecosave-accent: #c7f36b;
+  --ecosave-ink: #101310;
+  --ecosave-positive: #c7f36b;
+  --ecosave-negative: #f87171;
+  --ecosave-grid: rgb(244 243 237 / 0.08);
+  --ecosave-scroll: #2b352d;
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --kori-bg: #f4f3ed;
-  --kori-surface: #ffffff;
-  --kori-sidebar: #ecebe4;
-  --kori-header: #f0efe8;
-  --kori-input: #f4f3ed;
-  --kori-text: #141914;
-  --kori-muted: #5c665f;
-  --kori-line: rgb(20 25 20 / 0.1);
-  --kori-hover: rgb(20 25 20 / 0.05);
-  --kori-chip: rgb(20 25 20 / 0.06);
-  --kori-nav: rgb(20 25 20 / 0.45);
-  --kori-accent: #c7f36b;
-  --kori-ink: #101310;
-  --kori-positive: #3f6e12;
-  --kori-negative: #c2410c;
-  --kori-grid: rgb(20 25 20 / 0.1);
-  --kori-scroll: #c9cdc4;
+  --ecosave-bg: #f4f3ed;
+  --ecosave-surface: #ffffff;
+  --ecosave-sidebar: #ecebe4;
+  --ecosave-header: #f0efe8;
+  --ecosave-input: #f4f3ed;
+  --ecosave-text: #141914;
+  --ecosave-muted: #5c665f;
+  --ecosave-line: rgb(20 25 20 / 0.1);
+  --ecosave-hover: rgb(20 25 20 / 0.05);
+  --ecosave-chip: rgb(20 25 20 / 0.06);
+  --ecosave-nav: rgb(20 25 20 / 0.45);
+  --ecosave-accent: #c7f36b;
+  --ecosave-ink: #101310;
+  --ecosave-positive: #3f6e12;
+  --ecosave-negative: #c2410c;
+  --ecosave-grid: rgb(20 25 20 / 0.1);
+  --ecosave-scroll: #c9cdc4;
 }
 
 html,
@@ -87,8 +87,8 @@ body {
 
 body {
   margin: 0;
-  background: var(--kori-bg);
-  color: var(--kori-text);
+  background: var(--ecosave-bg);
+  color: var(--ecosave-text);
   font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   transition: background-color 180ms ease, color 180ms ease;
 }
@@ -101,12 +101,12 @@ textarea {
   color: inherit;
 }
 
-.kori-scroll::-webkit-scrollbar {
+.ecosave-scroll::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
-.kori-scroll::-webkit-scrollbar-thumb {
-  background: var(--kori-scroll);
+.ecosave-scroll::-webkit-scrollbar-thumb {
+  background: var(--ecosave-scroll);
   border-radius: 8px;
 }

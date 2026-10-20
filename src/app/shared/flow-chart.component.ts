@@ -7,20 +7,20 @@ import { Component, input } from '@angular/core';
     <svg viewBox="0 0 640 240" class="h-56 w-full" role="img" [attr.aria-label]="'Évolution des revenus et dépenses'">
       <rect width="640" height="240" fill="transparent" />
       @for (y of [40, 90, 140, 190]; track y) {
-        <line x1="40" [attr.y1]="y" x2="620" [attr.y2]="y" stroke="var(--kori-grid)" />
+        <line x1="40" [attr.y1]="y" x2="620" [attr.y2]="y" stroke="var(--ecosave-grid)" />
       }
-      <polyline fill="none" stroke="var(--kori-positive)" stroke-width="2.5" [attr.points]="incomePoints()" />
-      <polyline fill="none" stroke="var(--kori-negative)" stroke-width="2.5" [attr.points]="expensePoints()" />
+      <polyline fill="none" stroke="var(--ecosave-positive)" stroke-width="2.5" [attr.points]="incomePoints()" />
+      <polyline fill="none" stroke="var(--ecosave-negative)" stroke-width="2.5" [attr.points]="expensePoints()" />
       @for (point of dots(); track point.label + point.kind) {
-        <circle [attr.cx]="point.x" [attr.cy]="point.y" r="3.5" [attr.fill]="point.kind === 'income' ? 'var(--kori-positive)' : 'var(--kori-negative)'" />
+        <circle [attr.cx]="point.x" [attr.cy]="point.y" r="3.5" [attr.fill]="point.kind === 'income' ? 'var(--ecosave-positive)' : 'var(--ecosave-negative)'" />
       }
       @for (label of labels(); track label.text) {
-        <text [attr.x]="label.x" y="228" fill="var(--kori-muted)" font-size="11" text-anchor="middle">{{ label.text }}</text>
+        <text [attr.x]="label.x" y="228" fill="var(--ecosave-muted)" font-size="11" text-anchor="middle">{{ label.text }}</text>
       }
     </svg>
-    <div class="mt-2 flex gap-4 text-xs text-kori-muted">
-      <span class="inline-flex items-center gap-2"><i class="h-2 w-2 rounded-full bg-kori-accent"></i> Revenus</span>
-      <span class="inline-flex items-center gap-2"><i class="h-2 w-2 rounded-full bg-kori-negative"></i> Dépenses</span>
+    <div class="mt-2 flex gap-4 text-xs text-ecosave-muted">
+      <span class="inline-flex items-center gap-2"><i class="h-2 w-2 rounded-full bg-ecosave-accent"></i> Revenus</span>
+      <span class="inline-flex items-center gap-2"><i class="h-2 w-2 rounded-full bg-ecosave-negative"></i> Dépenses</span>
     </div>
   `,
 })

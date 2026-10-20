@@ -1,4 +1,4 @@
-# KORI - Your money, in control.
+# Eco-save — Your money, in control.
 
 Projet réalisé dans le cadre du challenge LibraryUI (https://libraryui.com/challenges/cree-une-interface-avec-des-composants-de-libraryui) , réalisé en Angular à partir des composants préts à l'emploi de LibraryUI. 
 

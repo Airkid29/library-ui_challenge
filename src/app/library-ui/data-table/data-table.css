@@ -22,11 +22,11 @@
 }
 
 .dt-th-sortable:hover {
-  background: var(--kori-hover);
+  background: var(--ecosave-hover);
 }
 
 .dt-filter-select option,
 .dt-page-select option {
-  background: var(--kori-surface);
-  color: var(--kori-text);
+  background: var(--ecosave-surface);
+  color: var(--ecosave-text);
 }

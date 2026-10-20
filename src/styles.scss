@@ -3,12 +3,12 @@
 @theme {
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Syne", "DM Sans", sans-serif;
-  --color-kori-bg: #101310;
-  --color-kori-surface: #1d241e;
-  --color-kori-accent: #c7f36b;
-  --color-kori-text: #f4f3ed;
-  --color-kori-muted: #9aa396;
-  --color-kori-line: rgb(244 243 237 / 0.08);
+  --color-ecosave-bg: #101310;
+  --color-ecosave-surface: #1d241e;
+  --color-ecosave-accent: #c7f36b;
+  --color-ecosave-text: #f4f3ed;
+  --color-ecosave-muted: #9aa396;
+  --color-ecosave-line: rgb(244 243 237 / 0.08);
   --spacing-4.5: 1.125rem;
   --spacing-7.5: 1.875rem;
   --spacing-8.5: 2.125rem;
@@ -54,12 +54,12 @@ textarea {
   font: inherit;
 }
 
-.kori-scroll::-webkit-scrollbar {
+.ecosave-scroll::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
 
-.kori-scroll::-webkit-scrollbar-thumb {
+.ecosave-scroll::-webkit-scrollbar-thumb {
   background: #2b352d;
   border-radius: 8px;
 }

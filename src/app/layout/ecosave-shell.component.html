@@ -1,27 +1,27 @@
-<div class="relative flex h-screen min-h-150 overflow-hidden bg-kori-bg font-sans"
+<div class="relative flex h-screen min-h-150 overflow-hidden bg-ecosave-bg font-sans"
      [class.sidebar-open]="sidebarOpen()">
 
   @if (sidebarOpen()) {
     <div class="fixed inset-0 z-40 bg-black/45 md:hidden" (click)="toggleSidebar()"></div>
   }
 
-  <aside class="z-50 flex w-18 shrink-0 flex-col items-center border-r border-kori-line bg-kori-sidebar py-5 pb-6
+  <aside class="z-50 flex w-18 shrink-0 flex-col items-center border-r border-ecosave-line bg-ecosave-sidebar py-5 pb-6
                 max-md:fixed max-md:top-0 max-md:left-0 max-md:h-full max-md:w-50
                 max-md:items-start max-md:-translate-x-full max-md:transition-transform max-md:duration-200"
          [class.max-md:translate-x-0]="sidebarOpen()">
 
     <div class="mb-8 max-md:px-6">
-      <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-kori-accent text-kori-ink">
-        <span class="font-[Syne] text-sm font-extrabold tracking-tight">KO</span>
+      <div class="flex h-10 w-10 items-center justify-center rounded-[10px] bg-ecosave-accent text-ecosave-ink">
+        <span class="font-[Syne] text-sm font-extrabold tracking-tight">ES</span>
       </div>
     </div>
 
     <nav class="flex w-full flex-1 flex-col items-center gap-1 max-md:items-start">
       @for (item of navItems; track item.path) {
         <a [routerLink]="item.path"
-          routerLinkActive="text-kori-text cd-nav-active"
+          routerLinkActive="text-ecosave-text cd-nav-active"
           [routerLinkActiveOptions]="{ exact: item.path === '/' }"
-          class="relative flex w-full flex-col items-center justify-center gap-[0.3rem] py-3 text-kori-nav no-underline transition-colors hover:text-kori-text
+          class="relative flex w-full flex-col items-center justify-center gap-[0.3rem] py-3 text-ecosave-nav no-underline transition-colors hover:text-ecosave-text
                  max-md:flex-row max-md:justify-start max-md:gap-3 max-md:px-6">
 
           @if (item.icon === 'grid') {
@@ -46,7 +46,7 @@
     </nav>
 
     <button type="button"
-      class="flex w-full cursor-pointer flex-col items-center justify-center gap-[0.3rem] border-0 bg-transparent py-3 text-kori-nav no-underline transition-colors hover:text-kori-text
+      class="flex w-full cursor-pointer flex-col items-center justify-center gap-[0.3rem] border-0 bg-transparent py-3 text-ecosave-nav no-underline transition-colors hover:text-ecosave-text
              max-md:flex-row max-md:justify-start max-md:gap-3 max-md:px-6"
       (click)="store.resetDemo()">
       <svg class="shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><polyline points="3 4 3 12 11 12"/></svg>
@@ -55,22 +55,22 @@
   </aside>
 
   <main class="relative flex flex-1 flex-col overflow-hidden max-md:flex-col">
-    <button class="z-45 fixed top-4 left-4 hidden h-9.5 w-9.5 cursor-pointer items-center justify-center rounded-lg border-none bg-kori-surface text-kori-text max-md:flex"
+    <button class="z-45 fixed top-4 left-4 hidden h-9.5 w-9.5 cursor-pointer items-center justify-center rounded-lg border-none bg-ecosave-surface text-ecosave-text max-md:flex"
             (click)="toggleSidebar()" aria-label="Ouvrir le menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
         <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
       </svg>
     </button>
 
-    <header class="flex items-center justify-between gap-4 border-b border-kori-line px-6 py-4 max-md:pt-16">
+    <header class="flex items-center justify-between gap-4 border-b border-ecosave-line px-6 py-4 max-md:pt-16">
       <div>
-        <p class="font-[Syne] text-lg font-extrabold tracking-tight text-kori-text">KORI</p>
-        <p class="text-xs text-kori-muted">Your money, in control.</p>
+        <p class="font-[Syne] text-lg font-extrabold tracking-tight text-ecosave-text">Eco-save</p>
+        <p class="text-xs text-ecosave-muted">Your money, in control.</p>
       </div>
       <div class="flex items-center gap-2">
         <button
           type="button"
-          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-kori-line bg-kori-surface text-kori-text transition-colors hover:bg-kori-hover"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-ecosave-line bg-ecosave-surface text-ecosave-text transition-colors hover:bg-ecosave-hover"
           (click)="store.toggleTheme()"
           [attr.aria-label]="store.settings().theme === 'dark' ? 'Activer le mode clair' : 'Activer le mode sombre'"
         >
@@ -89,7 +89,7 @@
       </div>
     </header>
 
-    <div class="kori-scroll flex-1 overflow-y-auto">
+    <div class="ecosave-scroll flex-1 overflow-y-auto">
       <router-outlet />
     </div>
   </main>

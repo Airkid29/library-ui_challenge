@@ -7,7 +7,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "kori": {
+    "ecosave": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -61,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "kori:build:production"
+              "buildTarget": "ecosave:build:production"
             },
             "development": {
-              "buildTarget": "kori:build:development"
+              "buildTarget": "ecosave:build:development"
             }
           },
           "defaultConfiguration": "development"

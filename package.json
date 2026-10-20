@@ -1,8 +1,8 @@
 {
-  "name": "kori",
+  "name": "ecosave",
   "version": "0.0.1",
   "private": true,
-  "description": "KORI — personal finance dashboard for LibraryUI Challenge #01",
+  "description": "Eco-save — personal finance dashboard for LibraryUI Challenge #01",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

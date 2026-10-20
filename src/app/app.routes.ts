@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { KoriShellComponent } from './layout/kori-shell.component';
+import { EcosaveShellComponent } from './layout/ecosave-shell.component';
 import { OverviewPage } from './pages/overview/overview.page';
 import { TransactionsPage } from './pages/transactions/transactions.page';
 import { BudgetsPage } from './pages/budgets/budgets.page';
@@ -9,7 +9,7 @@ import { SettingsPage } from './pages/settings/settings.page';
 export const routes: Routes = [
   {
     path: '',
-    component: KoriShellComponent,
+    component: EcosaveShellComponent,
     children: [
       { path: '', pathMatch: 'full', component: OverviewPage },
       { path: 'transactions', component: TransactionsPage },

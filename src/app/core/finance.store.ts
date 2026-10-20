@@ -21,9 +21,22 @@ interface PersistedState {
   settings: AppSettings;
 }
 
-const DATA_KEY = 'kori.demo.v1';
-const CONSENT_KEY = 'kori.local-consent';
-const THEME_KEY = 'kori.theme';
+const DATA_KEY = 'ecosave.demo.v1';
+const CONSENT_KEY = 'ecosave.local-consent';
+const THEME_KEY = 'ecosave.theme';
+
+function migrateStorageValue(key: string, legacyKey: string): string | null {
+  const currentValue = localStorage.getItem(key);
+  if (currentValue !== null) {
+    return currentValue;
+  }
+  const legacyValue = localStorage.getItem(legacyKey);
+  if (legacyValue !== null) {
+    localStorage.setItem(key, legacyValue);
+    localStorage.removeItem(legacyKey);
+  }
+  return legacyValue;
+}
 
 @Injectable({ providedIn: 'root' })
 export class FinanceStore {
@@ -173,14 +186,14 @@ export class FinanceStore {
   });
 
   constructor() {
-    const storedConsent = localStorage.getItem(CONSENT_KEY);
+    const storedConsent = migrateStorageValue(CONSENT_KEY, 'kori.local-consent');
     if (storedConsent === 'accepted' || storedConsent === 'declined') {
       this.consent.set(storedConsent);
     }
     if (this.consent() === 'accepted') {
       this.restore();
     }
-    const storedTheme = localStorage.getItem(THEME_KEY);
+    const storedTheme = migrateStorageValue(THEME_KEY, 'kori.theme');
     if (storedTheme === 'light' || storedTheme === 'dark') {
       this.settings.update((s) => ({ ...s, theme: storedTheme }));
     }
@@ -369,7 +382,7 @@ export class FinanceStore {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = 'kori-transactions.csv';
+    a.download = 'ecosave-transactions.csv';
     a.click();
     URL.revokeObjectURL(url);
     this.notify('Export CSV généré.');
@@ -404,7 +417,7 @@ export class FinanceStore {
   }
 
   private restore(): void {
-    const raw = localStorage.getItem(DATA_KEY);
+    const raw = migrateStorageValue(DATA_KEY, 'kori.demo.v1');
     if (!raw) {
       return;
     }

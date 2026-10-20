@@ -7,13 +7,13 @@ import { ConfirmationToast } from '../library-ui/confirmation-toast/confirmation
 import { CookieConsent3 } from '../library-ui/cookie-consent/cookie-consent-3';
 
 @Component({
-  selector: 'app-kori-shell',
+  selector: 'app-ecosave-shell',
   standalone: true,
   imports: [RouterOutlet, RouterLink, RouterLinkActive, AccountMenuComponent, ConfirmationToast, CookieConsent3],
-  templateUrl: './kori-shell.component.html',
-  styleUrl: './kori-shell.component.scss',
+  templateUrl: './ecosave-shell.component.html',
+  styleUrl: './ecosave-shell.component.scss',
 })
-export class KoriShellComponent {
+export class EcosaveShellComponent {
   private readonly router = inject(Router);
   protected readonly store = inject(FinanceStore);
   sidebarOpen = signal(false);

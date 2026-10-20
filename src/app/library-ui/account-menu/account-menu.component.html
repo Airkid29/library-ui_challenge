@@ -2,7 +2,7 @@
   @if (trigger() === 'button') {
     <button
       type="button"
-      class="inline-flex items-center gap-1.5 rounded-full border border-kori-line bg-kori-surface px-4 py-2 text-sm font-semibold text-kori-text shadow-sm transition-colors duration-150 hover:bg-kori-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kori-accent"
+      class="inline-flex items-center gap-1.5 rounded-full border border-ecosave-line bg-ecosave-surface px-4 py-2 text-sm font-semibold text-ecosave-text shadow-sm transition-colors duration-150 hover:bg-ecosave-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ecosave-accent"
       aria-haspopup="menu"
       [attr.aria-expanded]="isOpen()"
       (click)="toggleMenu()"
@@ -15,7 +15,7 @@
   } @else {
     <button
       type="button"
-      class="inline-flex items-center gap-1.5 rounded-full border border-kori-line bg-kori-surface px-4 py-2 text-sm font-semibold text-kori-text shadow-sm transition-colors duration-150 hover:bg-kori-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kori-accent"
+      class="inline-flex items-center gap-1.5 rounded-full border border-ecosave-line bg-ecosave-surface px-4 py-2 text-sm font-semibold text-ecosave-text shadow-sm transition-colors duration-150 hover:bg-ecosave-hover focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ecosave-accent"
       (click)="onShare()"
     >
       Exporter
@@ -26,7 +26,7 @@
 
     <button
       type="button"
-      class="h-10 w-10 shrink-0 overflow-hidden rounded-full ring-2 ring-kori-bg transition-shadow duration-150 hover:ring-kori-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-kori-accent"
+      class="h-10 w-10 shrink-0 overflow-hidden rounded-full ring-2 ring-ecosave-bg transition-shadow duration-150 hover:ring-ecosave-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ecosave-accent"
       aria-label="Ouvrir le menu du compte"
       aria-haspopup="menu"
       [attr.aria-expanded]="isOpen()"
@@ -38,23 +38,23 @@
 
   @if (isOpen()) {
     <div
-      class="absolute right-0 top-full z-20 mt-3 w-64 overflow-hidden rounded-2xl bg-kori-surface p-2 shadow-xl ring-1 ring-white/10"
+      class="absolute right-0 top-full z-20 mt-3 w-64 overflow-hidden rounded-2xl bg-ecosave-surface p-2 shadow-xl ring-1 ring-white/10"
       role="menu"
     >
       @for (item of items(); track item.id) {
         @if (item.dividerBefore) {
-          <div class="my-2 border-t border-kori-line"></div>
+          <div class="my-2 border-t border-ecosave-line"></div>
         }
 
         <button
           type="button"
           role="menuitem"
-          class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm transition-colors duration-100 hover:bg-kori-hover {{
-            activeId() === item.id ? 'bg-kori-chip font-semibold text-kori-text' : 'text-kori-muted'
+          class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm transition-colors duration-100 hover:bg-ecosave-hover {{
+            activeId() === item.id ? 'bg-ecosave-chip font-semibold text-ecosave-text' : 'text-ecosave-muted'
           }}"
           (click)="selectItem(item)"
         >
-          <span class="flex h-5 w-5 shrink-0 items-center justify-center text-kori-muted" aria-hidden="true">
+          <span class="flex h-5 w-5 shrink-0 items-center justify-center text-ecosave-muted" aria-hidden="true">
             @switch (item.icon) {
               @case ('profile') {
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
@@ -102,7 +102,7 @@
           <span class="flex-1 truncate">{{ item.label }}</span>
 
           @if (item.badge) {
-            <span class="inline-flex shrink-0 items-center gap-1 rounded-full bg-kori-accent/15 px-2 py-0.5 text-[11px] font-bold text-kori-positive">
+            <span class="inline-flex shrink-0 items-center gap-1 rounded-full bg-ecosave-accent/15 px-2 py-0.5 text-[11px] font-bold text-ecosave-positive">
               <svg class="h-2.5 w-2.5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                 <path d="M13 2 3 14h6l-1 8 11-14h-7l1-6Z" />
               </svg>

@@ -4,7 +4,14 @@
     <script>
       (function () {
         try {
-          var theme = localStorage.getItem('kori.theme');
+          var theme = localStorage.getItem('ecosave.theme');
+          if (theme === null) {
+            theme = localStorage.getItem('kori.theme');
+            if (theme !== null) {
+              localStorage.setItem('ecosave.theme', theme);
+              localStorage.removeItem('kori.theme');
+            }
+          }
           document.documentElement.dataset.theme = theme === 'light' ? 'light' : 'dark';
         } catch (e) {
           document.documentElement.dataset.theme = 'dark';
@@ -12,10 +19,10 @@
       })();
     </script>
     <meta charset="utf-8" />
-    <title>KORI — Your money, in control.</title>
+    <title>Eco-save — Your money, in control.</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="KORI, application de gestion financière personnelle." />
+    <meta name="description" content="Eco-save, application de gestion financière personnelle." />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

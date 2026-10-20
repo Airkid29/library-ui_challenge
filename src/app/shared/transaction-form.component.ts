@@ -26,40 +26,40 @@ export interface TransactionDraft {
   imports: [FormsModule],
   template: `
     <div class="fixed inset-0 z-60 flex items-end justify-center bg-black/55 p-4 sm:items-center">
-      <form class="w-full max-w-lg rounded-2xl border border-kori-line bg-kori-surface p-5" (ngSubmit)="submit()">
-        <h2 class="mb-4 text-lg font-semibold text-kori-text">{{ draft().id ? 'Modifier la transaction' : 'Nouvelle transaction' }}</h2>
+      <form class="w-full max-w-lg rounded-2xl border border-ecosave-line bg-ecosave-surface p-5" (ngSubmit)="submit()">
+        <h2 class="mb-4 text-lg font-semibold text-ecosave-text">{{ draft().id ? 'Modifier la transaction' : 'Nouvelle transaction' }}</h2>
         <div class="grid gap-3 sm:grid-cols-2">
-          <label class="sm:col-span-2 text-xs text-kori-muted">Description
-            <input required [(ngModel)]="draft().description" name="description" class="mt-1 w-full rounded-lg border border-kori-line bg-kori-bg px-3 py-2 text-sm text-kori-text outline-none focus:border-kori-accent" />
+          <label class="sm:col-span-2 text-xs text-ecosave-muted">Description
+            <input required [(ngModel)]="draft().description" name="description" class="mt-1 w-full rounded-lg border border-ecosave-line bg-ecosave-bg px-3 py-2 text-sm text-ecosave-text outline-none focus:border-ecosave-accent" />
           </label>
-          <label class="text-xs text-kori-muted">Type
-            <select [(ngModel)]="draft().type" name="type" class="mt-1 w-full rounded-lg border border-kori-line bg-kori-bg px-3 py-2 text-sm text-kori-text outline-none" (ngModelChange)="onTypeChange()">
+          <label class="text-xs text-ecosave-muted">Type
+            <select [(ngModel)]="draft().type" name="type" class="mt-1 w-full rounded-lg border border-ecosave-line bg-ecosave-bg px-3 py-2 text-sm text-ecosave-text outline-none" (ngModelChange)="onTypeChange()">
               <option value="expense">Dépense</option>
               <option value="income">Revenu</option>
             </select>
           </label>
-          <label class="text-xs text-kori-muted">Catégorie
-            <select [(ngModel)]="draft().category" name="category" class="mt-1 w-full rounded-lg border border-kori-line bg-kori-bg px-3 py-2 text-sm text-kori-text outline-none">
+          <label class="text-xs text-ecosave-muted">Catégorie
+            <select [(ngModel)]="draft().category" name="category" class="mt-1 w-full rounded-lg border border-ecosave-line bg-ecosave-bg px-3 py-2 text-sm text-ecosave-text outline-none">
               @for (cat of categories(); track cat) {
                 <option [value]="cat">{{ cat }}</option>
               }
             </select>
           </label>
-          <label class="text-xs text-kori-muted">Montant (F CFA)
-            <input required type="number" min="1" [(ngModel)]="draft().amount" name="amount" class="mt-1 w-full rounded-lg border border-kori-line bg-kori-bg px-3 py-2 text-sm text-kori-text outline-none focus:border-kori-accent" />
+          <label class="text-xs text-ecosave-muted">Montant (F CFA)
+            <input required type="number" min="1" [(ngModel)]="draft().amount" name="amount" class="mt-1 w-full rounded-lg border border-ecosave-line bg-ecosave-bg px-3 py-2 text-sm text-ecosave-text outline-none focus:border-ecosave-accent" />
           </label>
-          <label class="text-xs text-kori-muted">Date
-            <input required type="date" [(ngModel)]="draft().date" name="date" class="mt-1 w-full rounded-lg border border-kori-line bg-kori-bg px-3 py-2 text-sm text-kori-text outline-none" />
+          <label class="text-xs text-ecosave-muted">Date
+            <input required type="date" [(ngModel)]="draft().date" name="date" class="mt-1 w-full rounded-lg border border-ecosave-line bg-ecosave-bg px-3 py-2 text-sm text-ecosave-text outline-none" />
           </label>
-          <label class="text-xs text-kori-muted">Moyen de paiement
-            <select [(ngModel)]="draft().paymentMethod" name="paymentMethod" class="mt-1 w-full rounded-lg border border-kori-line bg-kori-bg px-3 py-2 text-sm text-kori-text outline-none">
+          <label class="text-xs text-ecosave-muted">Moyen de paiement
+            <select [(ngModel)]="draft().paymentMethod" name="paymentMethod" class="mt-1 w-full rounded-lg border border-ecosave-line bg-ecosave-bg px-3 py-2 text-sm text-ecosave-text outline-none">
               @for (method of methods; track method) {
                 <option [value]="method">{{ method }}</option>
               }
             </select>
           </label>
-          <label class="text-xs text-kori-muted">Statut
-            <select [(ngModel)]="draft().status" name="status" class="mt-1 w-full rounded-lg border border-kori-line bg-kori-bg px-3 py-2 text-sm text-kori-text outline-none">
+          <label class="text-xs text-ecosave-muted">Statut
+            <select [(ngModel)]="draft().status" name="status" class="mt-1 w-full rounded-lg border border-ecosave-line bg-ecosave-bg px-3 py-2 text-sm text-ecosave-text outline-none">
               <option value="completed">Confirmée</option>
               <option value="pending">En attente</option>
               <option value="failed">Échouée</option>
@@ -67,8 +67,8 @@ export interface TransactionDraft {
           </label>
         </div>
         <div class="mt-5 flex justify-end gap-3">
-          <button type="button" class="rounded-lg border border-kori-line px-4 py-2 text-sm font-semibold" (click)="closed.emit()">Annuler</button>
-          <button type="submit" class="rounded-lg bg-kori-accent px-4 py-2 text-sm font-semibold text-kori-ink">Enregistrer</button>
+          <button type="button" class="rounded-lg border border-ecosave-line px-4 py-2 text-sm font-semibold" (click)="closed.emit()">Annuler</button>
+          <button type="submit" class="rounded-lg bg-ecosave-accent px-4 py-2 text-sm font-semibold text-ecosave-ink">Enregistrer</button>
         </div>
       </form>
     </div>
