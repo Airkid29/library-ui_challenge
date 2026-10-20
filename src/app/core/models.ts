@@ -1,6 +1,6 @@
 export type TransactionType = 'income' | 'expense';
 export type TransactionStatus = 'completed' | 'pending' | 'failed';
-export type PaymentMethod = 'Wave' | 'Orange Money' | 'MTN MoMo' | 'Virement' | 'Carte' | 'Espèces';
+export type PaymentMethod = 'Mixx by Yas'|'Wave' | 'Orange Money' | 'MTN MoMo' | 'Virement' | 'Carte' | 'Espèces';
 export type DisplayCurrency = 'XOF' | 'EUR' | 'USD';
 export type PeriodKey = 'this-month' | 'last-month' | 'last-3-months' | 'year';
 export type ColorTheme = 'dark' | 'light';
@@ -67,6 +67,7 @@ export const EXPENSE_CATEGORIES = [
 export const INCOME_CATEGORIES = ['Freelance', 'Transfert familial', 'Autre revenu'] as const;
 
 export const PAYMENT_METHODS: PaymentMethod[] = [
+  'Mixx by Yas',
   'Wave',
   'Orange Money',
   'MTN MoMo',

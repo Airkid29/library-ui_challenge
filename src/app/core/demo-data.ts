@@ -48,7 +48,7 @@ export const DEMO_GOALS: SavingsGoal[] = [
 
 export const DEMO_SETTINGS = {
   displayName: 'Aya Koné',
-  city: 'Abidjan',
+  city: 'Lomé',
   currency: 'XOF' as const,
   compactNumbers: false,
   period: 'this-month' as const,
